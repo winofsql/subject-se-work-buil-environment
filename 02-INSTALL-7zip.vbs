@@ -1,51 +1,64 @@
-' ŠÇ—ÒŒ ŒÀÀs—p ( Shell.Application )
+' ********************************************************************************
+' 7-Zip ã‚¤ãƒ³ã‚¹ãƒ¼ãƒˆãƒ¼ãƒ«ã¨ãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ—ã«ã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆä½œæˆ
+'
+' check-1 : G ãƒ‰ãƒ©ã‚¤ãƒ–ãŒã‚ã‚‹äº‹
+' check-2 : G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD ãŒã‚ã‚‹äº‹
+'
+' dependemcy1 : G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\lnk\7-Zip File Manager.lnk
+' dependemcy1 : G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\important\7z2301-x64.exe
+' ********************************************************************************
+
+' ********************************************************************************
+' ç®¡ç†è€…æ¨©é™å®Ÿè¡Œç”¨ ( Shell.Application )
+' ********************************************************************************
+' ç®¡ç†è€…æ¨©é™å®Ÿè¡Œç”¨ ( Shell.Application )
 Set ShellApplication = CreateObject("Shell.Application")
 If WScript.Arguments.Count = 0 Then
 	ShellApplication.ShellExecute "cscript.exe", Chr(34) & WScript.ScriptFullName & Chr(34) & " dummy", "", "runas", 1
 	Wscript.Quit
 End If
 
-' Šî–{ƒIƒuƒWƒFƒNƒg
+' åŸºæœ¬ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 Set WshShell = CreateObject("WScript.Shell")
-' ƒtƒ@ƒCƒ‹ˆ——pƒIƒuƒWƒFƒNƒg
+' ãƒ•ã‚¡ã‚¤ãƒ«å‡¦ç†ç”¨ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 Set Fso = CreateObject("Scripting.FileSystemObject")
 
-' —˜—pƒ\ƒtƒgƒEƒFƒA—pƒRƒs[æƒtƒHƒ‹ƒ_
+' åˆ©ç”¨ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ç”¨ã‚³ãƒ”ãƒ¼å…ˆãƒ•ã‚©ãƒ«ãƒ€
 target2 = "c:\app2"
 
-' ƒRƒs[æƒtƒHƒ‹ƒ_‚ª–³‚¢ê‡
+' ã‚³ãƒ”ãƒ¼å…ˆãƒ•ã‚©ãƒ«ãƒ€ãŒç„¡ã„å ´åˆ
 If not Fso.FolderExists(target2) Then
 
 	Fso.CreateFolder(target2)
 
 End If
 
-' G ƒhƒ‰ƒCƒu‚ª–³‚¢ê‡
+' G ãƒ‰ãƒ©ã‚¤ãƒ–ãŒç„¡ã„å ´åˆ
 If not Fso.DriveExists("G:") Then
-	' ƒGƒ‰[ƒ_ƒCƒAƒƒO‚Ì•\¦
-	MsgBox("G ƒhƒ‰ƒCƒu‚ª‚ ‚è‚Ü‚¹‚ñBGoogle ƒhƒ‰ƒCƒu‚ğÀs‚µ‚Ä‚­‚¾‚³‚¢")
-	' ƒXƒNƒŠƒvƒgI—¹
+	' ã‚¨ãƒ©ãƒ¼ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®è¡¨ç¤º
+	MsgBox("G ãƒ‰ãƒ©ã‚¤ãƒ–ãŒã‚ã‚Šã¾ã›ã‚“ã€‚Google ãƒ‰ãƒ©ã‚¤ãƒ–ã‚’å®Ÿè¡Œã—ã¦ãã ã•ã„")
+	' ã‚¹ã‚¯ãƒªãƒ—ãƒˆçµ‚äº†
 	Wscript.Quit
 End If
 
-' G ƒhƒ‰ƒCƒu‚ÉƒCƒ“ƒXƒg[ƒ‹—pƒtƒHƒ‹ƒ_‚ª–³‚¢ê‡
-If not Fso.FolderExists("G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD") Then
-	' ƒGƒ‰[ƒ_ƒCƒAƒƒO‚Ì•\¦
-	MsgBox("SE-WORK-DOWNLOAD ƒtƒHƒ‹ƒ_‚ª‹¤—LƒtƒHƒ‹ƒ_‚É‚ ‚è‚Ü‚¹‚ñB‘ÎÛ‚Æ‚È‚éƒAƒJƒEƒ“ƒg‚ÅƒƒOƒCƒ“‚µ‚Ä‰º‚³‚¢")
-	' ƒXƒNƒŠƒvƒgI—¹
+' G ãƒ‰ãƒ©ã‚¤ãƒ–ã«ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ç”¨ãƒ•ã‚©ãƒ«ãƒ€ãŒç„¡ã„å ´åˆ
+If not Fso.FolderExists("G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD") Then
+	' ã‚¨ãƒ©ãƒ¼ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®è¡¨ç¤º
+	MsgBox("SE-WORK-DOWNLOAD ãƒ•ã‚©ãƒ«ãƒ€ãŒå…±æœ‰ãƒ•ã‚©ãƒ«ãƒ€ã«ã‚ã‚Šã¾ã›ã‚“ã€‚å¯¾è±¡ã¨ãªã‚‹ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã§ãƒ­ã‚°ã‚¤ãƒ³ã—ã¦ä¸‹ã•ã„")
+	' ã‚¹ã‚¯ãƒªãƒ—ãƒˆçµ‚äº†
 	Wscript.Quit
 End If
 
-' ŠÂ‹«•Ï”‚æ‚èAƒƒOƒCƒ“ƒ†[ƒU–¼‚ğæ“¾
+' ç’°å¢ƒå¤‰æ•°ã‚ˆã‚Šã€ãƒ­ã‚°ã‚¤ãƒ³ãƒ¦ãƒ¼ã‚¶åã‚’å–å¾—
 username = WshShell.ExpandEnvironmentStrings("%USERNAME%")
-' ƒfƒXƒNƒgƒbƒv‚ÉƒVƒ‡[ƒgƒJƒbƒg‚ğƒRƒs[
-Call Fso.CopyFile( "G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\lnk\7-Zip File Manager.lnk", "C:\Users\" & username & "\Desktop" & "\7-Zip File Manager.lnk", true )
-' ƒCƒ“ƒXƒg[ƒ‹—p exe ‚ğƒRƒs[
-Call Fso.CopyFile( "G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\important\7z2301-x64.exe",  target2 & "\7z2301-x64.exe", true )
+' ãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ—ã«ã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆã‚’ã‚³ãƒ”ãƒ¼
+Call Fso.CopyFile( "G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\lnk\7-Zip File Manager.lnk", "C:\Users\" & username & "\Desktop" & "\7-Zip File Manager.lnk", true )
+' ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ç”¨ exe ã‚’ã‚³ãƒ”ãƒ¼
+Call Fso.CopyFile( "G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\important\7z2301-x64.exe",  target2 & "\7z2301-x64.exe", true )
 
-' ŠO•”ƒRƒ}ƒ“ƒh‚ÌÀs
-' ˆø”È—ª : ƒRƒ}ƒ“ƒhƒvƒƒ“ƒvƒg‚ğŠJ‚­, True : “¯Šúˆ—
+' å¤–éƒ¨ã‚³ãƒãƒ³ãƒ‰ã®å®Ÿè¡Œ
+' å¼•æ•°çœç•¥ : ã‚³ãƒãƒ³ãƒ‰ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆã‚’é–‹ã, True : åŒæœŸå‡¦ç†
 WshShell.Run "cmd /c c:\app2\7z2301-x64.exe", , True
 
-' I—¹ƒ_ƒCƒAƒƒO‚Ì•\¦
-MsgBox("7-Zip ƒCƒ“ƒXƒg[ƒ‹‚ğI—¹‚µ‚Ü‚µ‚½B")
+' çµ‚äº†ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®è¡¨ç¤º
+MsgBox("7-Zip ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã‚’çµ‚äº†ã—ã¾ã—ãŸã€‚")

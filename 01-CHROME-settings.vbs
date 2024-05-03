@@ -4,8 +4,10 @@
 ' 1) HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome
 ' 2) HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\CookiesSessionOnlyForUrls
 ' 3) HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\ExtensionInstallForcelist
+'
 ' check-1 : G ドライブがある事
 ' check-2 : G:\共有ドライブ\SE-WORK-DOWNLOAD がある事
+'
 ' dependemcy : G:\共有ドライブ\SE-WORK-DOWNLOAD\_windows-basic\chrome-policy.reg
 ' ********************************************************************************
 

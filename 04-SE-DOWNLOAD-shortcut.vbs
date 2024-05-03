@@ -4,7 +4,7 @@
 ' dependemcy : C:\app2\Microsoft VS Code\bin に VisualStudioCode がインストールされている事
 ' dependemcy : G:\共有ドライブ\SE-WORK-DOWNLOAD が存在する
 '
-' act1 : PATH 環境変数の設定
+' 無し => act1 : PATH 環境変数の設定
 ' act2 : 以下のフォルダが無ければ作成
 '	 c:\app
 '	 c:\app2
@@ -57,7 +57,7 @@ target7 = "c:\app\java23"
 target8 = "c:\app\cs23"
 
 ' 環境変数
-WshShell.Environment("User").Item("Path") = "C:\app2\Python\Scripts\;C:\app2\Python\;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;%USERPROFILE%\.dotnet\tools;C:\app2\Microsoft VS Code\bin;C:\java16\bin;C:\app2\git\bin;C:\app2\sqlite3;"
+' WshShell.Environment("User").Item("Path") = "C:\app2\Python\Scripts\;C:\app2\Python\;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;%USERPROFILE%\.dotnet\tools;C:\app2\Microsoft VS Code\bin;C:\java16\bin;C:\app2\git\bin;C:\app2\sqlite3;"
 
 If Fso.FolderExists(target2 & "\DesktopOK_x64") Then
 

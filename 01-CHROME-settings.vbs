@@ -9,7 +9,9 @@
 ' dependemcy : G:\共有ドライブ\SE-WORK-DOWNLOAD\_windows-basic\chrome-policy.reg
 ' ********************************************************************************
 
+' ********************************************************************************
 ' 管理者権限実行用 ( Shell.Application )
+' ********************************************************************************
 Set ShellApplication = CreateObject("Shell.Application")
 If WScript.Arguments.Count = 0 Then
 	ShellApplication.ShellExecute "cscript.exe", Chr(34) & WScript.ScriptFullName & Chr(34) & " dummy", "", "runas", 1

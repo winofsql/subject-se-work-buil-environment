@@ -1,3 +1,24 @@
+' ********************************************************************************
+' PC ç’°å¢ƒã®ç´°ã€…ãªè¨­å®š
+'
+' check-1 : G ãƒ‰ãƒ©ã‚¤ãƒ–ãŒã‚ã‚‹äº‹
+' check-2 : G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD ãŒã‚ã‚‹äº‹
+'
+' dependemcy1 : C:\app2\Microsoft VS Code\bin ã« VisualStudioCode ãŒã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã•ã‚Œã¦ã„ã‚‹äº‹
+' dependemcy1 : G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\important\7z2301-x64.exe
+'
+' act1 : PATH ç’°å¢ƒå¤‰æ•°ã®è¨­å®š
+' act2 : ä»¥ä¸‹ã®ãƒ•ã‚©ãƒ«ãƒ€ãŒç„¡ã‘ã‚Œã°ä½œæˆ
+'	 c:\app
+'	 c:\app2
+'	 c:\app\workspace
+'	 c:\TMP
+'	 c:\TEMP
+'	 c:\app2\ä¿å­˜
+'	 c:\app\java23
+'	 c:\app\cs23
+' ********************************************************************************
+
 Set Fso = CreateObject( "Scripting.FileSystemObject" )
 
 strCurPath = WScript.ScriptFullName
@@ -12,17 +33,17 @@ target2 = "c:\app2"
 target3 = "c:\app\workspace"
 target4 = "c:\TMP"
 target5 = "c:\TEMP"
-target6 = "c:\app2\•Û‘¶"
+target6 = "c:\app2\ä¿å­˜"
 target7 = "c:\app\java23"
 target8 = "c:\app\cs23"
 
-' ŠÂ‹«•Ï”
+' ç’°å¢ƒå¤‰æ•°
 WshShell.Environment("User").Item("Path") = "C:\app2\Python\Scripts\;C:\app2\Python\;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;%USERPROFILE%\.dotnet\tools;C:\app2\Microsoft VS Code\bin;C:\java16\bin;C:\app2\git\bin;C:\app2\sqlite3;"
 
 If Fso.FolderExists(target2 & "\DesktopOK_x64") Then
 
 	on error resume next
-	Call Fso.CopyFile("G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\software\DesktopOK_x64\DesktopOK.ini", target2 & "\DesktopOK_x64\DesktopOK.ini", true )
+	Call Fso.CopyFile("G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\software\DesktopOK_x64\DesktopOK.ini", target2 & "\DesktopOK_x64\DesktopOK.ini", true )
 	on error goto 0
 
 End If
@@ -72,7 +93,7 @@ End If
 username = WshShell.ExpandEnvironmentStrings("%USERNAME%")
 
 set oShellLink = WshShell.CreateShortcut("C:\Users\" & username & "\Desktop" & "\SE-WORK DOWNLOAD.lnk")
-oShellLink.TargetPath = "G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD"
+oShellLink.TargetPath = "G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD"
 'oShellLink.Arguments = ""
 oShellLink.WindowStyle = 1
 oShellLink.IconLocation = "C:\WINDOWS\system32\imageres.dll,8"
@@ -95,7 +116,7 @@ oShellLink.IconLocation = "C:\WINDOWS\system32\imageres.dll,166"
 'oShellLink.WorkingDirectory = strCurPath
 oShellLink.Save
 
-set oShellLink = WshShell.CreateShortcut("C:\Users\" & username & "\Desktop" & "\ƒyƒCƒ“ƒg.lnk")
+set oShellLink = WshShell.CreateShortcut("C:\Users\" & username & "\Desktop" & "\ãƒšã‚¤ãƒ³ãƒˆ.lnk")
 oShellLink.TargetPath = "mspaint.exe"
 'oShellLink.Arguments = ""
 oShellLink.WindowStyle = 1
@@ -103,7 +124,7 @@ oShellLink.IconLocation = "%SystemRoot%\System32\SHELL32.dll,127"
 'oShellLink.WorkingDirectory = "C:\Program Files\WindowsApps\Microsoft.Paint_11.2311.30.0_x64__8wekyb3d8bbwe\PaintApp"
 oShellLink.Save
 
-set oShellLink = WshShell.CreateShortcut("C:\Users\" & username & "\Desktop" & "\ƒŠƒ‚[ƒg ƒfƒXƒNƒgƒbƒvÚ‘±.lnk")
+set oShellLink = WshShell.CreateShortcut("C:\Users\" & username & "\Desktop" & "\ãƒªãƒ¢ãƒ¼ãƒˆ ãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ—æ¥ç¶š.lnk")
 oShellLink.TargetPath = "C:\Windows\System32\mstsc.exe"
 'oShellLink.Arguments = ""
 oShellLink.WindowStyle = 1
@@ -111,22 +132,22 @@ oShellLink.IconLocation = "C:\Windows\System32\mstsc.exe,0"
 oShellLink.WorkingDirectory = "C:\Windows\System32"
 oShellLink.Save
 
-Call Fso.CopyFile( "G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\lnk\ƒfƒBƒXƒN ƒNƒŠ[ƒ“ƒAƒbƒv.lnk", "C:\Users\" & username & "\Desktop" & "\ƒfƒBƒXƒN ƒNƒŠ[ƒ“ƒAƒbƒv.lnk", true )
-Call Fso.CopyFile( "G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\lnk\7-Zip File Manager.lnk", "C:\Users\" & username & "\Desktop" & "\7-Zip File Manager.lnk", true )
-Call Fso.CopyFile( "G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\lnk\Microsoft Edge.lnk", "C:\Users\" & username & "\Desktop" & "\Microsoft Edge.lnk", true )
-Call Fso.CopyFile( "G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\lnk\Visual Studio Code.lnk", "C:\Users\" & username & "\Desktop" & "\Visual Studio Code.lnk", true )
-Call Fso.CopyFile( "G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\lnk\Access.lnk", "C:\Users\" & username & "\Desktop" & "\Access.lnk", true )
-Call Fso.CopyFile( "G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\lnk\Excel.lnk", "C:\Users\" & username & "\Desktop" & "\Excel.lnk", true )
-Call Fso.CopyFile( "G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\lnk\Visual Studio 2022.lnk", "C:\Users\" & username & "\Desktop" & "\Visual Studio 2022.lnk", true )
-'Call Fso.CopyFile( "G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\lnk\Google Chrome.lnk", "C:\Users\" & username & "\Desktop" & "\Google Chrome.lnk", true )
-Call Fso.CopyFile( "G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\lnk\Google Drive.lnk", "C:\Users\" & username & "\Desktop" & "\Google Drive.lnk", true )
-'Call Fso.CopyFile( "G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\lnk\WinMerge.lnk", "C:\Users\" & username & "\Desktop" & "\WinMerge.lnk", true )
-Call Fso.CopyFile( "G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\lnk\eclipse.lnk", "C:\Users\" & username & "\Desktop" & "\eclipse.lnk", true )
-Call Fso.CopyFile( "G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\lnk\•Û‘¶.lnk", "C:\Users\" & username & "\Desktop" & "\•Û‘¶.lnk", true )
-Call Fso.CopyFile( "G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\lnk\DB Browser for SQLite.lnk", "C:\Users\" & username & "\Desktop" & "\DB Browser for SQLite.lnk", true )
-'Call Fso.CopyFile( "G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\lnk\FileZilla Client.lnk", "C:\Users\" & username & "\Desktop" & "\FileZilla Client.lnk", true )
+Call Fso.CopyFile( "G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\lnk\ãƒ‡ã‚£ã‚¹ã‚¯ ã‚¯ãƒªãƒ¼ãƒ³ã‚¢ãƒƒãƒ—.lnk", "C:\Users\" & username & "\Desktop" & "\ãƒ‡ã‚£ã‚¹ã‚¯ ã‚¯ãƒªãƒ¼ãƒ³ã‚¢ãƒƒãƒ—.lnk", true )
+Call Fso.CopyFile( "G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\lnk\7-Zip File Manager.lnk", "C:\Users\" & username & "\Desktop" & "\7-Zip File Manager.lnk", true )
+Call Fso.CopyFile( "G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\lnk\Microsoft Edge.lnk", "C:\Users\" & username & "\Desktop" & "\Microsoft Edge.lnk", true )
+Call Fso.CopyFile( "G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\lnk\Visual Studio Code.lnk", "C:\Users\" & username & "\Desktop" & "\Visual Studio Code.lnk", true )
+Call Fso.CopyFile( "G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\lnk\Access.lnk", "C:\Users\" & username & "\Desktop" & "\Access.lnk", true )
+Call Fso.CopyFile( "G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\lnk\Excel.lnk", "C:\Users\" & username & "\Desktop" & "\Excel.lnk", true )
+Call Fso.CopyFile( "G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\lnk\Visual Studio 2022.lnk", "C:\Users\" & username & "\Desktop" & "\Visual Studio 2022.lnk", true )
+'Call Fso.CopyFile( "G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\lnk\Google Chrome.lnk", "C:\Users\" & username & "\Desktop" & "\Google Chrome.lnk", true )
+Call Fso.CopyFile( "G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\lnk\Google Drive.lnk", "C:\Users\" & username & "\Desktop" & "\Google Drive.lnk", true )
+'Call Fso.CopyFile( "G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\lnk\WinMerge.lnk", "C:\Users\" & username & "\Desktop" & "\WinMerge.lnk", true )
+Call Fso.CopyFile( "G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\lnk\eclipse.lnk", "C:\Users\" & username & "\Desktop" & "\eclipse.lnk", true )
+Call Fso.CopyFile( "G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\lnk\ä¿å­˜.lnk", "C:\Users\" & username & "\Desktop" & "\ä¿å­˜.lnk", true )
+Call Fso.CopyFile( "G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\lnk\DB Browser for SQLite.lnk", "C:\Users\" & username & "\Desktop" & "\DB Browser for SQLite.lnk", true )
+'Call Fso.CopyFile( "G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\lnk\FileZilla Client.lnk", "C:\Users\" & username & "\Desktop" & "\FileZilla Client.lnk", true )
 
-set oShellLink = WshShell.CreateShortcut("C:\Users\" & username & "\Desktop" & "\ƒfƒBƒXƒN ƒNƒŠ[ƒ“ƒAƒbƒv.lnk")
+set oShellLink = WshShell.CreateShortcut("C:\Users\" & username & "\Desktop" & "\ãƒ‡ã‚£ã‚¹ã‚¯ ã‚¯ãƒªãƒ¼ãƒ³ã‚¢ãƒƒãƒ—.lnk")
 oShellLink.TargetPath = "C:\Windows\System32\cleanmgr.exe"
 'oShellLink.Arguments = ""
 oShellLink.WindowStyle = 1
@@ -176,4 +197,4 @@ oShellLink.IconLocation = "C:\Program Files\Mozilla Firefox\firefox.exe,0"
 oShellLink.WorkingDirectory = "C:\Program Files\Mozilla Firefox"
 oShellLink.Save
 
-Wscript.Echo "ˆ—‚ªI—¹‚µ‚Ü‚µ‚½"
+Wscript.Echo "å‡¦ç†ãŒçµ‚äº†ã—ã¾ã—ãŸ"

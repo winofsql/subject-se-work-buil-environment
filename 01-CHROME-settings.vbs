@@ -1,40 +1,45 @@
-' Google Charome ƒ|ƒŠƒV[Ý’è
-' ƒŒƒWƒXƒgƒŠƒCƒ“ƒ|[ƒg
+' ********************************************************************************
+' Google Charome ãƒãƒªã‚·ãƒ¼è¨­å®š
+' ãƒ¬ã‚¸ã‚¹ãƒˆãƒªã‚¤ãƒ³ãƒãƒ¼ãƒˆ
 ' 1) HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome
 ' 2) HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\CookiesSessionOnlyForUrls
 ' 3) HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\ExtensionInstallForcelist
+' check-1 : G ãƒ‰ãƒ©ã‚¤ãƒ–ãŒã‚ã‚‹äº‹
+' check-2 : G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD ãŒã‚ã‚‹äº‹
+' dependemcy : G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\_windows-basic\chrome-policy.reg
+' ********************************************************************************
 
-' ŠÇ—ŽÒŒ ŒÀŽÀs—p ( Shell.Application )
+' ç®¡ç†è€…æ¨©é™å®Ÿè¡Œç”¨ ( Shell.Application )
 Set ShellApplication = CreateObject("Shell.Application")
 If WScript.Arguments.Count = 0 Then
 	ShellApplication.ShellExecute "cscript.exe", Chr(34) & WScript.ScriptFullName & Chr(34) & " dummy", "", "runas", 1
 	Wscript.Quit
 End If
 
-' Šî–{ƒIƒuƒWƒFƒNƒg
+' åŸºæœ¬ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 Set WshShell = CreateObject("WScript.Shell")
-' ƒtƒ@ƒCƒ‹ˆ——pƒIƒuƒWƒFƒNƒg
+' ãƒ•ã‚¡ã‚¤ãƒ«å‡¦ç†ç”¨ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 Set Fso = CreateObject("Scripting.FileSystemObject")
 
-' G ƒhƒ‰ƒCƒu‚ª–³‚¢ê‡
+' G ãƒ‰ãƒ©ã‚¤ãƒ–ãŒç„¡ã„å ´åˆ
 If not Fso.DriveExists("G:") Then
-	' ƒGƒ‰[ƒ_ƒCƒAƒƒO‚Ì•\Ž¦
-	MsgBox("G ƒhƒ‰ƒCƒu‚ª‚ ‚è‚Ü‚¹‚ñBGoogle ƒhƒ‰ƒCƒu‚ðŽÀs‚µ‚Ä‚­‚¾‚³‚¢")
-	' ƒXƒNƒŠƒvƒgI—¹
+	' ã‚¨ãƒ©ãƒ¼ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®è¡¨ç¤º
+	MsgBox("G ãƒ‰ãƒ©ã‚¤ãƒ–ãŒã‚ã‚Šã¾ã›ã‚“ã€‚Google ãƒ‰ãƒ©ã‚¤ãƒ–ã‚’å®Ÿè¡Œã—ã¦ãã ã•ã„")
+	' ã‚¹ã‚¯ãƒªãƒ—ãƒˆçµ‚äº†
 	Wscript.Quit
 End If
 
-' G ƒhƒ‰ƒCƒu‚ÉƒCƒ“ƒXƒg[ƒ‹—pƒtƒHƒ‹ƒ_‚ª–³‚¢ê‡
-If not Fso.FolderExists("G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD") Then
-	' ƒGƒ‰[ƒ_ƒCƒAƒƒO‚Ì•\Ž¦
-	MsgBox("SE-WORK-DOWNLOAD ƒtƒHƒ‹ƒ_‚ª‹¤—LƒtƒHƒ‹ƒ_‚É‚ ‚è‚Ü‚¹‚ñB‘ÎÛ‚Æ‚È‚éƒAƒJƒEƒ“ƒg‚ÅƒƒOƒCƒ“‚µ‚Ä‰º‚³‚¢")
-	' ƒXƒNƒŠƒvƒgI—¹
+' G ãƒ‰ãƒ©ã‚¤ãƒ–ã«ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ç”¨ãƒ•ã‚©ãƒ«ãƒ€ãŒç„¡ã„å ´åˆ
+If not Fso.FolderExists("G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD") Then
+	' ã‚¨ãƒ©ãƒ¼ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®è¡¨ç¤º
+	MsgBox("SE-WORK-DOWNLOAD ãƒ•ã‚©ãƒ«ãƒ€ãŒå…±æœ‰ãƒ•ã‚©ãƒ«ãƒ€ã«ã‚ã‚Šã¾ã›ã‚“ã€‚å¯¾è±¡ã¨ãªã‚‹ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã§ãƒ­ã‚°ã‚¤ãƒ³ã—ã¦ä¸‹ã•ã„")
+	' ã‚¹ã‚¯ãƒªãƒ—ãƒˆçµ‚äº†
 	Wscript.Quit
 End If
 
-' ŠO•”ƒRƒ}ƒ“ƒh‚ÌŽÀs ( chrome-policy.reg ) ‚ÌƒCƒ“ƒ|[ƒg
-' 0 : ƒRƒ}ƒ“ƒhƒvƒƒ“ƒvƒg‚ðŠJ‚©‚È‚¢, True : “¯Šúˆ—
-WshShell.Run "reg import G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\_windows-basic\chrome-policy.reg", 0, True
+' å¤–éƒ¨ã‚³ãƒžãƒ³ãƒ‰ã®å®Ÿè¡Œ ( chrome-policy.reg ) ã®ã‚¤ãƒ³ãƒãƒ¼ãƒˆ
+' 0 : ã‚³ãƒžãƒ³ãƒ‰ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆã‚’é–‹ã‹ãªã„, True : åŒæœŸå‡¦ç†
+WshShell.Run "reg import G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\_windows-basic\chrome-policy.reg", 0, True
 
-' I—¹ƒ_ƒCƒAƒƒO‚Ì•\Ž¦
-MsgBox("Google Chrome ‚ÌÝ’è‚ðI—¹‚µ‚Ü‚µ‚½B")
+' çµ‚äº†ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã®è¡¨ç¤º
+MsgBox("Google Chrome ã®è¨­å®šã‚’çµ‚äº†ã—ã¾ã—ãŸã€‚")

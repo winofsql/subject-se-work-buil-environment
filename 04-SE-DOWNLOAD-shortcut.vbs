@@ -1,9 +1,6 @@
 ' ********************************************************************************
 ' PC 環境の細々な設定
 '
-' check-1 : G ドライブがある事
-' check-2 : G:\共有ドライブ\SE-WORK-DOWNLOAD がある事
-'
 ' dependemcy : C:\app2\Microsoft VS Code\bin に VisualStudioCode がインストールされている事
 ' dependemcy : G:\共有ドライブ\SE-WORK-DOWNLOAD が存在する
 '

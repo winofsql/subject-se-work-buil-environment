@@ -1,3 +1,24 @@
+' ********************************************************************************
+' æ—¢å­˜ XAMPP ç’°å¢ƒã®ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã¨è¨­å®š
+'
+' check-1 : G ãƒ‰ãƒ©ã‚¤ãƒ–ãŒã‚ã‚‹äº‹
+' check-2 : G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD ãŒã‚ã‚‹äº‹
+'
+' dependemcy1 : 7-zip ãŒã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã•ã‚Œã¦ã„ã‚‹äº‹
+' dependemcy2 : C:\xampp ãƒ•ã‚©ãƒ«ãƒ€ãŒç„¡ã„äº‹
+'		æ—¢ã«ã‚ã‚‹å ´åˆã¯ã€ãƒªãƒãƒ¼ãƒ ã™ã‚‹ã¨æ–°ã—ã„ãƒ•ã‚©ãƒ«ãƒ€( xampp-æœˆæ—¥ )ãŒä½œæˆã•ã‚Œã‚‹ã®ã§ã€ãã‚Œã‚’ C:\xampp ã« ãƒªãƒãƒ¼ãƒ ã™ã‚‹
+'
+' act1 : ä»¥ä¸‹ã®ãƒ•ã‚©ãƒ«ãƒ€ãŒç„¡ã‘ã‚Œã°ä½œæˆ
+'	c:\app
+'	c:\app\web23
+'	c:\app\web23\index
+' act2 : xampp ã®ã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆã‚’ä½œæˆ ( ç®¡ç†è€…æ¨©é™ã§å®Ÿè¡Œ )
+' act3 : TOMCAT ç”¨ã®è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰
+' ********************************************************************************
+
+' ********************************************************************************
+' ç®¡ç†è€…æ¨©é™å®Ÿè¡Œç”¨ ( Shell.Application )
+' ********************************************************************************
 Set objShellApplication = CreateObject("Shell.Application")
 If WScript.Arguments.Count = 0 Then
 	objShellApplication.ShellExecute "cscript.exe", Chr(34) & WScript.ScriptFullName & Chr(34) & " dummy", "", "runas", 1
@@ -23,21 +44,21 @@ If not objFSO.FolderExists(target2) Then
 End If
 
 If not objFSO.DriveExists("G:") Then
-	MsgBox("G ƒhƒ‰ƒCƒu‚ª‚ ‚è‚Ü‚¹‚ñBGoogle ƒhƒ‰ƒCƒu‚ğÀs‚µ‚Ä‚­‚¾‚³‚¢")
+	MsgBox("G ãƒ‰ãƒ©ã‚¤ãƒ–ãŒã‚ã‚Šã¾ã›ã‚“ã€‚Google ãƒ‰ãƒ©ã‚¤ãƒ–ã‚’å®Ÿè¡Œã—ã¦ãã ã•ã„")
 	Wscript.Quit
 End If
 
-If not objFSO.FolderExists("G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD") Then
-	MsgBox("SE-WORK-DOWNLOAD ƒtƒHƒ‹ƒ_‚ª‹¤—LƒtƒHƒ‹ƒ_‚É‚ ‚è‚Ü‚¹‚ñB‘ÎÛ‚Æ‚È‚éƒAƒJƒEƒ“ƒg‚ÅƒƒOƒCƒ“‚µ‚Ä‰º‚³‚¢")
+If not objFSO.FolderExists("G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD") Then
+	MsgBox("SE-WORK-DOWNLOAD ãƒ•ã‚©ãƒ«ãƒ€ãŒå…±æœ‰ãƒ•ã‚©ãƒ«ãƒ€ã«ã‚ã‚Šã¾ã›ã‚“ã€‚å¯¾è±¡ã¨ãªã‚‹ã‚¢ã‚«ã‚¦ãƒ³ãƒˆã§ãƒ­ã‚°ã‚¤ãƒ³ã—ã¦ä¸‹ã•ã„")
 	Wscript.Quit
 End If
 
 SevenZipPath = objShell.RegRead("HKLM\SOFTWARE\7-Zip\Path") & "7z.exe"
 
-Wscript.Echo ".htaccess ‚ğƒ_ƒEƒ“ƒ[ƒh‚µ‚Ä‚¢‚Ü‚·......"
-Set sourceFile = objFSO.GetFile("G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\settings\.htaccess")
+Wscript.Echo ".htaccess ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ã¦ã„ã¾ã™......"
+Set sourceFile = objFSO.GetFile("G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\settings\.htaccess")
 sourceFile.Copy target2 & "\.htaccess", True
-Wscript.Echo ".htaccess ‚ğƒ_ƒEƒ“ƒ[ƒh‚µ‚Ü‚µ‚½"
+Wscript.Echo ".htaccess ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ã¾ã—ãŸ"
 
 If not objFSO.FolderExists(target3) Then
 
@@ -46,75 +67,75 @@ If not objFSO.FolderExists(target3) Then
 	work = "C:\Users\%USERNAME%\AppData\Roaming\Code\User\script\download.vbs"
 	work = objShell.ExpandEnvironmentStrings( work )
 	
-	Wscript.Echo "index.zip ‚ğƒ_ƒEƒ“ƒ[ƒh‚µ‚Ä‚¢‚Ü‚·......"
-	Set sourceFile = objFSO.GetFile("G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\settings\index.zip")
+	Wscript.Echo "index.zip ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ã¦ã„ã¾ã™......"
+	Set sourceFile = objFSO.GetFile("G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\settings\index.zip")
 	sourceFile.Copy "c:\app\web23\index.zip", True
-	Wscript.Echo "index.zip ‚ğƒ_ƒEƒ“ƒ[ƒh‚µ‚Ü‚µ‚½"
+	Wscript.Echo "index.zip ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ã¾ã—ãŸ"
 
-	Wscript.Echo "index.zip ‚ğ‰ğ“€‚µ‚Ä‚¢‚Ü‚·......"
+	Wscript.Echo "index.zip ã‚’è§£å‡ã—ã¦ã„ã¾ã™......"
 	objShell.Run Chr(34) & SevenZipPath & Chr(34) & " x -o" & target3 & " " & target2 & "\index.zip", 0, True
-	Wscript.Echo "index.zip ‚ğ‰ğ“€‚µ‚Ü‚µ‚½"
+	Wscript.Echo "index.zip ã‚’è§£å‡ã—ã¾ã—ãŸ"
 	
-	Wscript.Echo "index.zip ‚ğíœ‚µ‚Ä‚¢‚Ü‚·......"
+	Wscript.Echo "index.zip ã‚’å‰Šé™¤ã—ã¦ã„ã¾ã™......"
 	objFSO.DeleteFile target2 & "\index.zip"
-	Wscript.Echo "index.zip ‚ğíœ‚µ‚Ü‚µ‚½"
+	Wscript.Echo "index.zip ã‚’å‰Šé™¤ã—ã¾ã—ãŸ"
 
 else
 
-	Wscript.Echo target3 & " ‚ÍŠù‚É‘¶İ‚µ‚Ä‚¢‚Ü‚·B“à—e‚ğÄ“xƒ_ƒEƒ“ƒ[ƒh‚·‚é‚É‚Í " & target3 & " ƒtƒHƒ‹ƒ_‚ğíœ‚·‚é‚©ƒŠƒl[ƒ€‚µ‚Ä‚­‚¾‚³‚¢" & vbCrLf
+	Wscript.Echo target3 & " ã¯æ—¢ã«å­˜åœ¨ã—ã¦ã„ã¾ã™ã€‚å†…å®¹ã‚’å†åº¦ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã™ã‚‹ã«ã¯ " & target3 & " ãƒ•ã‚©ãƒ«ãƒ€ã‚’å‰Šé™¤ã™ã‚‹ã‹ãƒªãƒãƒ¼ãƒ ã—ã¦ãã ã•ã„" & vbCrLf
 
 End If
 
 username = objShell.ExpandEnvironmentStrings("%USERNAME%")
-Call objFSO.CopyFile( "G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\lnk\xampp.lnk", "C:\Users\" & username & "\Desktop" & "\xampp.lnk", true )
+Call objFSO.CopyFile( "G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\lnk\xampp.lnk", "C:\Users\" & username & "\Desktop" & "\xampp.lnk", true )
 
 If not objFSO.FolderExists("c:\xampp") Then
 
-	Wscript.Echo "xampp.zip ‚ğƒ_ƒEƒ“ƒ[ƒh‚µ‚Ä‚¢‚Ü‚·......"
-	Set sourceFile = objFSO.GetFile("G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\database\xampp\xampp.zip")
+	Wscript.Echo "xampp.zip ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ã¦ã„ã¾ã™......"
+	Set sourceFile = objFSO.GetFile("G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\database\xampp\xampp.zip")
 	sourceFile.Copy "c:\xampp.zip", True
-	Wscript.Echo "xampp.zip ‚ğƒ_ƒEƒ“ƒ[ƒh‚µ‚Ü‚µ‚½"
+	Wscript.Echo "xampp.zip ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ã¾ã—ãŸ"
 
 	suffixMonth = Right("0" & Month(Date), 2)
 	suffixDay = Right("0" & Day(Date), 2)
 	suffix = suffixMonth & suffixDay
 
 	If not objFSO.FolderExists("c:\xampp-" & suffix) Then
-		Wscript.Echo "xampp.zip ‚ğ‰ğ“€‚µ‚Ä‚¢‚Ü‚·......"
+		Wscript.Echo "xampp.zip ã‚’è§£å‡ã—ã¦ã„ã¾ã™......"
 		objShell.Run Chr(34) & SevenZipPath & Chr(34) & " x -oc:\xampp-" & suffix & " " & "c:\xampp.zip", 0, True
-		Wscript.Echo "xampp.zip ‚ğ‰ğ“€‚µ‚Ü‚µ‚½"
+		Wscript.Echo "xampp.zip ã‚’è§£å‡ã—ã¾ã—ãŸ"
 	end if
 
-	Wscript.Echo "Tomcat —p‚Ì server.xml ‚ğƒ_ƒEƒ“ƒ[ƒh‚µ‚Ä‚¢‚Ü‚·......"
-	Set sourceFile = objFSO.GetFile("G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\database\xampp\server.xml")
+	Wscript.Echo "Tomcat ç”¨ã® server.xml ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ã¦ã„ã¾ã™......"
+	Set sourceFile = objFSO.GetFile("G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\database\xampp\server.xml")
 	sourceFile.Copy "C:\xampp-" & suffix & "\tomcat\conf\server.xml", True
-	Wscript.Echo "Tomcat —p‚Ì web.xml ‚ğƒ_ƒEƒ“ƒ[ƒh‚µ‚Ä‚¢‚Ü‚·......"
-	Set sourceFile = objFSO.GetFile("G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\database\xampp\web.xml")
+	Wscript.Echo "Tomcat ç”¨ã® web.xml ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ã¦ã„ã¾ã™......"
+	Set sourceFile = objFSO.GetFile("G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\database\xampp\web.xml")
 	sourceFile.Copy "C:\xampp-" & suffix & "\tomcat\conf\web.xml", True
 
-	Wscript.Echo "Python —p‚Ì httpd.conf ‚ğƒ_ƒEƒ“ƒ[ƒh‚µ‚Ä‚¢‚Ü‚·......"
-	Set sourceFile = objFSO.GetFile("G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\database\xampp\httpd.conf")
+	Wscript.Echo "Python ç”¨ã® httpd.conf ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ã¦ã„ã¾ã™......"
+	Set sourceFile = objFSO.GetFile("G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\database\xampp\httpd.conf")
 	sourceFile.Copy "C:\xampp-" & suffix & "\tomcat\conf\httpd.conf", True
 
-	MsgBox("xampp İ’è‚ğI—¹‚µ‚Ü‚µ‚½B")
+	MsgBox("xampp è¨­å®šã‚’çµ‚äº†ã—ã¾ã—ãŸã€‚")
 	Wscript.Quit
 
 else
 
-	Wscript.Echo "c:\xampp ‚ÍŠù‚É‘¶İ‚µ‚Ä‚¢‚Ü‚·B“à—e‚ğÄ“xƒ_ƒEƒ“ƒ[ƒh‚·‚é‚É‚Í c:\xampp ƒtƒHƒ‹ƒ_‚ğíœ‚·‚é‚©ƒŠƒl[ƒ€‚µ‚Ä‚­‚¾‚³‚¢" & vbCrLf
+	Wscript.Echo "c:\xampp ã¯æ—¢ã«å­˜åœ¨ã—ã¦ã„ã¾ã™ã€‚å†…å®¹ã‚’å†åº¦ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã™ã‚‹ã«ã¯ c:\xampp ãƒ•ã‚©ãƒ«ãƒ€ã‚’å‰Šé™¤ã™ã‚‹ã‹ãƒªãƒãƒ¼ãƒ ã—ã¦ãã ã•ã„" & vbCrLf
 
 End If
 
-Wscript.Echo "Tomcat —p‚Ì server.xml ‚ğƒ_ƒEƒ“ƒ[ƒh‚µ‚Ä‚¢‚Ü‚·......"
-Set sourceFile = objFSO.GetFile("G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\database\xampp\server.xml")
+Wscript.Echo "Tomcat ç”¨ã® server.xml ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ã¦ã„ã¾ã™......"
+Set sourceFile = objFSO.GetFile("G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\database\xampp\server.xml")
 sourceFile.Copy "C:\xampp\tomcat\conf\server.xml", True
 
-Wscript.Echo "Tomcat —p‚Ì web.xml ‚ğƒ_ƒEƒ“ƒ[ƒh‚µ‚Ä‚¢‚Ü‚·......"
-Set sourceFile = objFSO.GetFile("G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\database\xampp\web.xml")
+Wscript.Echo "Tomcat ç”¨ã® web.xml ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ã¦ã„ã¾ã™......"
+Set sourceFile = objFSO.GetFile("G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\database\xampp\web.xml")
 sourceFile.Copy "C:\xampp\tomcat\conf\web.xml", True
 
-Wscript.Echo "Python —p‚Ì httpd.conf ‚ğƒ_ƒEƒ“ƒ[ƒh‚µ‚Ä‚¢‚Ü‚·......"
-Set sourceFile = objFSO.GetFile("G:\‹¤—Lƒhƒ‰ƒCƒu\SE-WORK-DOWNLOAD\database\xampp\httpd.conf")
+Wscript.Echo "Python ç”¨ã® httpd.conf ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ã¦ã„ã¾ã™......"
+Set sourceFile = objFSO.GetFile("G:\å…±æœ‰ãƒ‰ãƒ©ã‚¤ãƒ–\SE-WORK-DOWNLOAD\database\xampp\httpd.conf")
 sourceFile.Copy "C:\xampp\apache\conf\httpd.conf", True
 
-MsgBox("xampp İ’è‚ğI—¹‚µ‚Ü‚µ‚½B")
+MsgBox("xampp è¨­å®šã‚’çµ‚äº†ã—ã¾ã—ãŸã€‚")

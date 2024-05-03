@@ -4,8 +4,8 @@
 ' check-1 : G ドライブがある事
 ' check-2 : G:\共有ドライブ\SE-WORK-DOWNLOAD がある事
 '
-' dependemcy1 : C:\app2\Microsoft VS Code\bin に VisualStudioCode がインストールされている事
-' dependemcy1 : G:\共有ドライブ\SE-WORK-DOWNLOAD\important\7z2301-x64.exe
+' dependemcy : C:\app2\Microsoft VS Code\bin に VisualStudioCode がインストールされている事
+' dependemcy : G:\共有ドライブ\SE-WORK-DOWNLOAD が存在する
 '
 ' act1 : PATH 環境変数の設定
 ' act2 : 以下のフォルダが無ければ作成
@@ -17,6 +17,28 @@
 '	 c:\app2\保存
 '	 c:\app\java23
 '	 c:\app\cs23
+' act3 : 以下のショートカットを作成
+'	 G:\共有ドライブ\SE-WORK-DOWNLOAD
+'	 C:\app\workspace
+'	 C:\Users\" & username & "\Downloads
+'	 mspaint.exe
+'	 C:\Windows\System32\mstsc.exe ( リモート デスクトップ接続 )
+'	 ディスク クリーンアップ
+'	 7-Zip File Manager
+'	 Microsoft Edge
+'        Visual Studio Code
+'	 Access
+'	 Excel
+' 	 Visual Studio 2022
+'	 Google Chrome
+'	 Google Drive
+'	 WinMerge
+'	 eclipse
+'	 保存
+'	 DB Browser for SQLite
+'	 FileZilla Client
+'	 Snipping Tool
+'	 Firefox
 ' ********************************************************************************
 
 Set Fso = CreateObject( "Scripting.FileSystemObject" )
